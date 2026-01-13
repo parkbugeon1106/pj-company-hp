@@ -73,79 +73,27 @@ nav span:hover {
     rgba(59,130,246,0.28),
     rgba(5,9,20,0) 70%
   );
+  z-index: 0;
 }
 
+/* 🔥 텍스트가 무조건 위에 오게 */
+.hero h1,
+.hero p {
+  position: relative;
+  z-index: 1;
+}
+
+/* 🔥 제목 */
 .hero h1 {
   font-size: 120px;
   font-weight: 900;
   margin-bottom: 40px;
-  z-index: 1;
 }
 
+/* 🔥 설명 (3배) */
 .hero p {
   font-size: 48px;
   max-width: 1100px;
   line-height: 1.6;
   color: #B6C0D1;
-  z-index: 1;
-}
-
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.modal-box {
-  background: #050914;
-  padding: 48px;
-  text-align: center;
-  max-width: 560px;
-}
-
-.modal-box.white {
-  background: #fff;
-  color: #000;
-}
-
-.modal-logo {
-  width: 100px;
-  margin-bottom: 20px;
-}
-
-.btn-row {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin: 20px 0;
-}
-
-button {
-  padding: 10px 24px;
-  background: #3B82F6;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-textarea {
-  width: 100%;
-  height: 140px;
-  margin: 20px 0;
-}
-
-/* TEAM */
-.team {
-  display: flex;
-  gap: 32px;
-  max-width: 900px;
-}
-
-.team img {
-  width: 240px;
 }

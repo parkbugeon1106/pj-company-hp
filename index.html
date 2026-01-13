@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PJ COMPANY</title>
+
+<link rel="stylesheet" href="style.css" />
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+})();
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-area">
+    <img src="logo.png" alt="logo" />
+    <span class="brand">PJ COMPANY</span>
+  </div>
+
+  <nav>
+    <a href="#" id="contactBtn">Contact</a>
+    <a href="#" id="businessBtn">Business</a>
+    <a href="#" id="teamBtn">Team</a>
+  </nav>
+</header>
+
+<main class="hero">
+  <h1 id="typing"></h1>
+
+  <p class="subtitle">
+    PJ COMPANY delivers B2B technology solutions by designing, developing,
+    and operating stable data, AI, and automation systems proven in real-world
+    production environments.<br><br>
+    We prioritize practical implementation and long-term operational reliability
+    over theoretical concepts.
+  </p>
+</main>
+
+<section class="how-it-works">
+  <div class="white-box">
+    <h2>How It Works for Your Business?</h2>
+    <button id="howBtn">View Process</button>
+  </div>
+</section>
+
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <img src="team.logo.png" class="modal-logo" />
+    <p class="email">CEO Gmail</p>
+    <p class="email-value" id="gmail">bagdoeon827@gmail.com</p>
+
+    <div class="btn-group">
+      <a href="mailto:bagdoeon827@gmail.com" class="btn">Write an email</a>
+      <button class="btn" id="copyBtn">Copy</button>
+    </div>
+
+    <a class="insta" href="https://www.instagram.com/b0g0o0/" target="_blank">
+      Instagram
+    </a>
+  </div>
+</div>
+
+<!-- BUSINESS MODAL -->
+<div class="modal" id="businessModal">
+  <div class="modal-content white">
+    <h1>REQUEST</h1>
+    <p>What do you need?</p>
+
+    <textarea id="requestText"></textarea>
+    <button id="sendBtn">SEND</button>
+
+    <small>This message will be submitted directly to the company.</small>
+  </div>
+</div>
+
+<!-- TEAM MODAL -->
+<div class="modal" id="teamModal">
+  <div class="modal-content team">
+    <img src="bugeon.png" class="profile" />
+    <div class="team-text">
+      <h2>Park Bugeon | Founder & CEO · Full-Stack Developer</h2>
+      <p>
+        Park Bugeon is the Founder and CEO of PJ COMPANY and a full-stack developer.
+        He designs and builds complete systems across frontend, backend,
+        and server infrastructure.
+      </p>
+      <p>
+        His expertise includes real-time data pipelines, automation systems,
+        and AI-driven analytics, covering the full lifecycle from planning
+        to deployment and long-term operation.
+      </p>
+      <a href="https://www.instagram.com/b0g0o0/" target="_blank">Instagram</a><br>
+      <a href="https://github.com/parkbugeon1106" target="_blank">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

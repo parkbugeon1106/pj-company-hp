@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PJ COMPANY</title>
 
-<link rel="stylesheet" href="style.css" />
+<meta name="description" content="PJ COMPANY builds real B2B systems in AI, data, and automation.">
+<meta name="author" content="PJ COMPANY">
+
+<link rel="stylesheet" href="style.css">
 
 <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 (function(){
-  emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+  emailjs.init("YOUR_PUBLIC_KEY");
 })();
 </script>
 </head>
@@ -19,78 +22,63 @@
 <body>
 
 <header>
-  <div class="logo-area">
-    <img src="logo.png" alt="logo" />
-    <span class="brand">PJ COMPANY</span>
+  <div class="brand-area">
+    <img src="logo.png">
+    <strong>PJ COMPANY</strong>
   </div>
-
   <nav>
-    <a href="#" id="contactBtn">Contact</a>
-    <a href="#" id="businessBtn">Business</a>
-    <a href="#" id="teamBtn">Team</a>
+    <a id="contactBtn">Contact</a>
+    <a id="businessBtn">Business</a>
+    <a id="teamBtn">Team</a>
   </nav>
 </header>
 
-<main class="hero">
-  <h1 id="typing"></h1>
+<section class="hero">
+  <h1 id="heroText"></h1>
+  <p id="heroDesc"></p>
+</section>
 
-  <p class="subtitle">
-    PJ COMPANY delivers B2B technology solutions by designing, developing,
-    and operating stable data, AI, and automation systems proven in real-world
-    production environments.<br><br>
-    We prioritize practical implementation and long-term operational reliability
-    over theoretical concepts.
-  </p>
-</main>
-
-<section class="how-it-works">
-  <div class="white-box">
-    <h2>How It Works for Your Business?</h2>
-    <button id="howBtn">View Process</button>
+<section class="how">
+  <div class="box">
+    <h2 id="howTitle"></h2>
+    <button id="startProject">Start a Project</button>
   </div>
 </section>
 
-<!-- CONTACT MODAL -->
+<!-- CONTACT -->
 <div class="modal" id="contactModal">
-  <div class="modal-content">
-    <img src="team.logo.png" class="modal-logo" />
-    <p class="email">CEO Gmail</p>
-    <p class="email-value" id="gmail">bagdoeon827@gmail.com</p>
-
-    <div class="btn-group">
-      <a href="mailto:bagdoeon827@gmail.com" class="btn">Write an email</a>
-      <button class="btn" id="copyBtn">Copy</button>
+  <div class="modal-inner">
+    <img src="team.logo.png" class="modal-logo">
+    <p>CEO Gmail</p>
+    <p id="email">bagdoeon827@gmail.com</p>
+    <div class="actions">
+      <a href="mailto:bagdoeon827@gmail.com">Write an email</a>
+      <button id="copyEmail">Copy</button>
     </div>
-
-    <a class="insta" href="https://www.instagram.com/b0g0o0/" target="_blank">
-      Instagram
-    </a>
+    <a href="https://www.instagram.com/b0g0o0/" target="_blank">Instagram</a>
   </div>
 </div>
 
-<!-- BUSINESS MODAL -->
+<!-- BUSINESS -->
 <div class="modal" id="businessModal">
-  <div class="modal-content white">
+  <div class="modal-inner white">
     <h1>REQUEST</h1>
     <p>What do you need?</p>
-
-    <textarea id="requestText"></textarea>
-    <button id="sendBtn">SEND</button>
-
+    <textarea id="request"></textarea>
+    <button id="send">SEND</button>
     <small>This message will be submitted directly to the company.</small>
   </div>
 </div>
 
-<!-- TEAM MODAL -->
+<!-- TEAM -->
 <div class="modal" id="teamModal">
-  <div class="modal-content team">
-    <img src="bugeon.png" class="profile" />
-    <div class="team-text">
+  <div class="modal-inner team">
+    <img src="bugeon.png">
+    <div>
       <h2>Park Bugeon | Founder & CEO · Full-Stack Developer</h2>
       <p>
         Park Bugeon is the Founder and CEO of PJ COMPANY and a full-stack developer.
-        He designs and builds complete systems across frontend, backend,
-        and server infrastructure.
+        He designs and builds complete systems across frontend, backend, and server infrastructure.
       </p>
       <p>
         His expertise includes real-time data pipelines, automation systems,

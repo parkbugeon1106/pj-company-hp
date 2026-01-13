@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PJ COMPANY</title>
+
+<!-- 캐시 완전 차단 -->
+<link rel="stylesheet" href="style.css?v=FINAL">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <img src="logo.png" alt="PJ COMPANY logo">
+    <span>PJ COMPANY</span>
+  </div>
+
+  <nav>
+    <span id="contactBtn">Contact</span>
+    <span id="businessBtn">Business</span>
+    <span id="teamBtn">Team</span>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 id="heroTitle"></h1>
+
+  <p id="heroDesc">
+    PJ COMPANY delivers B2B technology solutions by designing, developing,
+    and operating stable data, AI, and automation systems proven in real-world
+    production environments.<br><br>
+    We prioritize practical implementation and long-term operational reliability
+    over theoretical concepts.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<div class="modal" id="contactModal">
+  <div class="modal-box">
+    <img src="team.logo.png" class="modal-logo">
+    <p class="label">CEO Gmail</p>
+    <p class="email">bagdoeon827@gmail.com</p>
+
+    <div class="btn-row">
+      <a href="mailto:bagdoeon827@gmail.com">Write an email</a>
+      <button onclick="copyEmail()">Copy</button>
+    </div>
+
+    <a href="https://www.instagram.com/b0g0o0/" target="_blank">Instagram</a>
+  </div>
+</div>
+
+<!-- BUSINESS -->
+<div class="modal" id="businessModal">
+  <div class="modal-box white">
+    <h2>REQUEST</h2>
+    <p>What do you need?</p>
+    <textarea id="requestText"></textarea>
+    <button>SEND</button>
+    <small>This message will be submitted directly to the company.</small>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="modal" id="teamModal">
+  <div class="modal-box team">
+    <img src="bugeon.png">
+    <div>
+      <h3>Park Bugeon | Founder & CEO · Full-Stack Developer</h3>
+      <p>
+        Park Bugeon is the Founder and CEO of PJ COMPANY and a full-stack developer.
+        He designs and builds complete systems across frontend, backend,
+        and server infrastructure.
+      </p>
+      <p>
+        His expertise includes real-time data pipelines, automation systems,
+        and AI-driven analytics, covering the full lifecycle from planning
+        to deployment and long-term operation.
+      </p>
+      <a href="https://www.instagram.com/b0g0o0/" target="_blank">Instagram</a><br>
+      <a href="https://github.com/parkbugeon1106" target="_blank">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<script src="main.js?v=FINAL"></script>
+</body>
+</html>

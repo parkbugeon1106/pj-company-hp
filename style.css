@@ -6,9 +6,9 @@
 }
 
 body {
-  background: #0A0F1F;
+  background: #050914;
   color: #E5E7EB;
-  padding-top: 80px;
+  padding-top: 90px;
 }
 
 /* HEADER */
@@ -16,29 +16,36 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 80px;
-  padding: 0 40px;
+  height: 90px;
+  padding: 0 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0A0F1F;
+  background: rgba(5,9,20,0.95);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .brand img {
-  width: 28px;
+  width: 48px; /* 🔥 로고 더 크게 */
+}
+
+.brand strong {
+  font-size: 22px;
+  font-weight: 900;
 }
 
 nav a {
-  margin-left: 20px;
-  cursor: pointer;
-  color: #9CA3AF;
+  margin-left: 28px;
   font-size: 14px;
+  color: #9CA3AF;
+  cursor: pointer;
 }
 
 nav a:hover {
@@ -47,39 +54,58 @@ nav a:hover {
 
 /* HERO */
 .hero {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 90px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 24px;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(59,130,246,0.22),
+    rgba(5,9,20,0) 70%
+  );
 }
 
 .hero h1 {
-  font-size: 64px;
-  color: #3B82F6;
-  margin-bottom: 20px;
+  font-size: 120px;
+  font-weight: 900;
+  color: #EAF1FF;
+  z-index: 1;
+  margin-bottom: 36px;
 }
 
+/* 🔥 아래 설명 글자 크기 3배 */
 .hero p {
-  max-width: 820px;
-  font-size: 16px;
-  color: #9CA3AF;
+  max-width: 1000px;
+  font-size: 48px;
+  line-height: 1.6;
+  color: #B6C0D1;
+  z-index: 1;
 }
 
 /* HOW */
 .how {
   display: flex;
   justify-content: center;
-  padding: 80px 20px;
+  padding: 120px 24px;
 }
 
 .white-box {
   background: #fff;
   color: #000;
-  padding: 40px;
+  padding: 56px;
   text-align: center;
+  max-width: 560px;
 }
 
 /* MODAL */
@@ -87,15 +113,17 @@ nav a:hover {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
+  z-index: 2000;
 }
 
 .modal-content {
-  background: #0A0F1F;
-  padding: 40px;
+  background: #050914;
+  padding: 48px;
   text-align: center;
+  max-width: 560px;
 }
 
 .modal-content.white {
@@ -104,38 +132,32 @@ nav a:hover {
 }
 
 .modal-logo {
-  width: 80px;
-}
-
-.btn-group {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin: 20px 0;
+  width: 100px;
+  margin-bottom: 20px;
 }
 
 .btn {
-  padding: 8px 20px;
+  padding: 12px 28px;
   background: #3B82F6;
   color: #fff;
   border: none;
   cursor: pointer;
-  text-decoration: none;
+  font-size: 14px;
 }
 
 textarea {
   width: 100%;
-  height: 120px;
-  margin: 20px 0;
+  height: 140px;
+  margin: 24px 0;
 }
 
 /* TEAM */
 .team {
   display: flex;
-  gap: 30px;
+  gap: 32px;
   max-width: 900px;
 }
 
 .profile {
-  width: 220px;
+  width: 240px;
 }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://parkbugeon1106.github.io/pj_company_main_hp/sitemap.xml

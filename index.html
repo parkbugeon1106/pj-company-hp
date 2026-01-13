@@ -5,103 +5,112 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PJ COMPANY</title>
 
-<meta name="description" content="PJ COMPANY builds real-world B2B systems in data, AI, and automation.">
-<meta name="author" content="PJ COMPANY">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://parkbugeon1106.github.io/pj_company_main_hp/" />
-
-<!-- Open Graph -->
-<meta property="og:title" content="PJ COMPANY – Building Real Systems">
-<meta property="og:description" content="Production-ready data, AI, and automation systems.">
-<meta property="og:type" content="website">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "PJ COMPANY",
-  "url": "https://parkbugeon1106.github.io/pj_company_main_hp/",
-  "logo": "https://parkbugeon1106.github.io/pj_company_main_hp/logo.png",
-  "subOrganization": {
-    "@type": "Organization",
-    "name": "PJ IT COMPANY",
-    "url": "https://parkbugeon1106.github.io/pj_it_company_main_hp/"
-  }
-}
-</script>
-
 <link rel="stylesheet" href="style.css">
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
+</script>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="brand">
-    <img src="logo.png">
+    <img src="logo.png" alt="logo">
     <strong>PJ COMPANY</strong>
   </div>
+
   <nav>
-    <a href="#home">Home</a>
-    <a id="businessBtn">Business</a>
     <a id="contactBtn">Contact</a>
+    <a id="businessBtn">Business</a>
     <a id="teamBtn">Team</a>
-    <a href="https://parkbugeon1106.github.io/pj_it_company_main_hp/"
-       target="_blank" class="it-link">PJ IT COMPANY</a>
   </nav>
 </header>
 
-<section class="hero" id="home">
-  <h1>We build everything</h1>
-  <p>
-    PJ COMPANY delivers B2B technology solutions by designing, developing,
-    and operating stable data, AI, and automation systems proven in real-world
-    production environments.<br><br>
-    We prioritize practical implementation and long-term operational reliability
-    over theoretical concepts.
-  </p>
-</section>
+<!-- HERO -->
+<main class="hero">
+  <h1 id="typing"></h1>
+  <p id="heroDesc"></p>
+</main>
 
-<section class="about">
-  <h2>About PJ COMPANY</h2>
-  <p>
-    PJ COMPANY is a technology-driven company focused on building
-    real-world systems that operate reliably in production.
-  </p>
-</section>
-
-<section class="build">
-  <h2>What We Build</h2>
-  <ul>
-    <li>Real-time data collection systems</li>
-    <li>Automated data processing pipelines</li>
-    <li>AI-driven analytics and inference systems</li>
-    <li>24/7 long-running server infrastructure</li>
-  </ul>
-</section>
-
-<section class="it-company">
-  <h2>PJ IT COMPANY</h2>
-  <p>
-    PJ IT COMPANY is the engineering division of PJ COMPANY,
-    responsible for designing, building, and operating real-world systems.
-  </p>
-  <a href="https://parkbugeon1106.github.io/pj_it_company_main_hp/"
-     target="_blank" class="btn">Explore Engineering →</a>
-</section>
-
+<!-- HOW IT WORKS -->
 <section class="how">
-  <div class="box">
+  <div class="white-box">
     <h2>How It Works for Your Business?</h2>
-    <button id="startProject">Start a Project</button>
+    <button id="howBtn">View Process</button>
   </div>
 </section>
 
-<footer>
-  <p>© PJ COMPANY</p>
-  <p>PJ IT COMPANY is the engineering division of PJ COMPANY.</p>
-</footer>
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <img src="team.logo.png" class="modal-logo">
+    <p class="label">CEO Gmail</p>
+    <p class="email" id="gmail">bagdoeon827@gmail.com</p>
+
+    <div class="btn-group">
+      <a href="mailto:bagdoeon827@gmail.com" class="btn">Write an email</a>
+      <button class="btn" id="copyBtn">Copy</button>
+    </div>
+
+    <a href="https://www.instagram.com/b0g0o0/" target="_blank" class="link">
+      Instagram
+    </a>
+  </div>
+</div>
+
+<!-- BUSINESS MODAL -->
+<div class="modal" id="businessModal">
+  <div class="modal-content white">
+    <h1>REQUEST</h1>
+    <p>What do you need?</p>
+
+    <textarea id="requestText"></textarea>
+
+    <button id="sendBtn">SEND</button>
+    <small>This message will be submitted directly to the company.</small>
+  </div>
+</div>
+
+<!-- TEAM MODAL -->
+<div class="modal" id="teamModal">
+  <div class="modal-content team">
+    <img src="bugeon.png" class="profile">
+    <div class="team-text">
+      <h2>Park Bugeon | Founder & CEO · Full-Stack Developer</h2>
+      <p>
+        Park Bugeon is the Founder and CEO of PJ COMPANY and a full-stack developer.
+        He designs and builds complete systems across frontend, backend,
+        and server infrastructure.
+      </p>
+      <p>
+        His expertise includes real-time data pipelines, automation systems,
+        and AI-driven analytics, covering the full lifecycle from planning
+        to deployment and long-term operation.
+      </p>
+      <a href="https://www.instagram.com/b0g0o0/" target="_blank">Instagram</a><br>
+      <a href="https://github.com/parkbugeon1106" target="_blank">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- HOW PROCESS MODAL -->
+<div class="modal" id="howModal">
+  <div class="modal-content white">
+    <ol class="process">
+      <li>Project request submission</li>
+      <li>Internal review and pricing assessment</li>
+      <li>Client discussion and requirement alignment</li>
+      <li>Final approval and project execution</li>
+    </ol>
+    <button id="startProject">Start a Project</button>
+  </div>
+</div>
 
 <script src="main.js"></script>
 </body>

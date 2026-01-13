@@ -1,4 +1,4 @@
-/* ---------- Language Auto Detect ---------- */
+/* ---------- Language ---------- */
 async function loadLanguage() {
   const lang = navigator.language.slice(0,2);
   const supported = ["en","ko","ja","zh","fr","de","es","ru","pt"];
@@ -7,35 +7,36 @@ async function loadLanguage() {
   const res = await fetch(`lang/${use}.json`);
   const t = await res.json();
 
-  typeText(t.hero_title);
+  animateText(t.hero_title);
   document.getElementById("heroDesc").innerText = t.hero_desc;
 }
 loadLanguage();
 
-/* ---------- Typing Animation ---------- */
-function typeText(text) {
+/* ---------- Typing Animation (확실히 보이게) ---------- */
+function animateText(text) {
   const el = document.getElementById("typing");
   el.innerHTML = "";
   let i = 0;
-  const timer = setInterval(() => {
-    el.innerHTML += text[i++];
-    if (i >= text.length) clearInterval(timer);
-  }, 70);
+  const interval = setInterval(() => {
+    el.innerHTML += `<span>${text[i]}</span>`;
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, 80);
 }
 
-/* ---------- Modal Logic ---------- */
+/* ---------- Modals ---------- */
 const modals = {
-  contact: document.getElementById("contactModal"),
-  business: document.getElementById("businessModal"),
-  team: document.getElementById("teamModal"),
-  how: document.getElementById("howModal")
+  contact: contactModal,
+  business: businessModal,
+  team: teamModal,
+  how: howModal
 };
 
-document.getElementById("contactBtn").onclick = () => modals.contact.style.display = "flex";
-document.getElementById("businessBtn").onclick = () => modals.business.style.display = "flex";
-document.getElementById("teamBtn").onclick = () => modals.team.style.display = "flex";
-document.getElementById("howBtn").onclick = () => modals.how.style.display = "flex";
-document.getElementById("startProject").onclick = () => {
+contactBtn.onclick = () => modals.contact.style.display = "flex";
+businessBtn.onclick = () => modals.business.style.display = "flex";
+teamBtn.onclick = () => modals.team.style.display = "flex";
+howBtn.onclick = () => modals.how.style.display = "flex";
+startProject.onclick = () => {
   modals.how.style.display = "none";
   modals.business.style.display = "flex";
 };
@@ -46,15 +47,15 @@ window.onclick = e => {
   });
 };
 
-/* ---------- Copy Gmail ---------- */
-document.getElementById("copyBtn").onclick = () => {
+/* ---------- Copy ---------- */
+copyBtn.onclick = () => {
   navigator.clipboard.writeText("bagdoeon827@gmail.com");
   alert("Copied");
 };
 
 /* ---------- EmailJS ---------- */
-document.getElementById("sendBtn").onclick = () => {
-  const msg = document.getElementById("requestText").value.trim();
+sendBtn.onclick = () => {
+  const msg = requestText.value.trim();
   if (!msg) return alert("Please write your request.");
 
   emailjs.send(
@@ -62,9 +63,9 @@ document.getElementById("sendBtn").onclick = () => {
     "YOUR_TEMPLATE_ID",
     { message: msg }
   ).then(() => {
-    alert("Message sent successfully.");
-    document.getElementById("requestText").value = "";
+    alert("Message sent.");
+    requestText.value = "";
   }).catch(() => {
-    alert("Failed to send.");
+    alert("Failed.");
   });
 };

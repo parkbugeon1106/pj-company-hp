@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PJ COMPANY</title>
 
-  <!-- GitHub Pages 안전 상대경로 -->
+  <!-- ★ 기준 경로 강제 고정 (중요) -->
+  <base href="./">
+
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
 <header>
-  <!-- 로고 클릭 시 홈으로 -->
+  <!-- 홈 -->
   <a href="./index.html" class="brand">
     <img src="./logo.png" alt="PJ COMPANY logo">
     <span>PJ COMPANY</span>
   </a>
 
-  <!-- 모든 메뉴는 새 창 + 상대경로 -->
+  <!-- 새 창 + 경로 고정 -->
   <nav>
     <a href="./contact.html" target="_blank" rel="noopener noreferrer">Contact</a>
     <a href="./business.html" target="_blank" rel="noopener noreferrer">Business</a>
@@ -28,9 +30,7 @@
 
 <main>
   <section class="hero">
-    <!-- JS 타이핑 대상 -->
     <h1 id="heroTitle"></h1>
-
     <p>
       PJ COMPANY delivers B2B technology solutions by designing, developing,
       and operating stable data, AI, and automation systems proven in real-world
@@ -42,7 +42,6 @@
   </section>
 </main>
 
-<!-- JS는 body 맨 아래 (DOM 에러 차단) -->
 <script src="./main.js"></script>
 
 </body>

@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PJ COMPANY</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PJ COMPANY</title>
+
+  <!-- GitHub Pages 안전 상대경로 -->
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
 <header>
-  <a href="index.html" class="brand">
-    <img src="logo.png" alt="logo">
+  <!-- 로고 클릭 시 홈으로 -->
+  <a href="./index.html" class="brand">
+    <img src="./logo.png" alt="PJ COMPANY logo">
     <span>PJ COMPANY</span>
   </a>
+
+  <!-- 모든 메뉴는 새 창 + 상대경로 -->
   <nav>
-    <a href="contact.html" target="_blank">Contact</a>
-    <a href="business.html" target="_blank">Business</a>
-    <a href="team.html" target="_blank">Team</a>
+    <a href="./contact.html" target="_blank" rel="noopener noreferrer">Contact</a>
+    <a href="./business.html" target="_blank" rel="noopener noreferrer">Business</a>
+    <a href="./team.html" target="_blank" rel="noopener noreferrer">Team</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h1 id="heroTitle"></h1>
-  <p>
-    PJ COMPANY delivers B2B technology solutions by designing, developing,
-    and operating stable data, AI, and automation systems proven in real-world
-    production environments.<br><br>
-    We prioritize practical implementation and long-term operational reliability
-    over theoretical concepts.
-  </p>
-</section>
+<main>
+  <section class="hero">
+    <!-- JS 타이핑 대상 -->
+    <h1 id="heroTitle"></h1>
 
-<script src="main.js"></script>
+    <p>
+      PJ COMPANY delivers B2B technology solutions by designing, developing,
+      and operating stable data, AI, and automation systems proven in real-world
+      production environments.
+      <br><br>
+      We prioritize practical implementation and long-term operational reliability
+      over theoretical concepts.
+    </p>
+  </section>
+</main>
+
+<!-- JS는 body 맨 아래 (DOM 에러 차단) -->
+<script src="./main.js"></script>
+
 </body>
 </html>

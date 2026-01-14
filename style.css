@@ -32,7 +32,7 @@ header {
 }
 
 .brand img {
-  width: 56px;
+  width: 68px;
 }
 
 .brand span {
@@ -92,7 +92,7 @@ nav span:hover {
 
 /* 🔥 설명 (3배) */
 .hero p {
-  font-size: 48px;
+  font-size: 24px;
   max-width: 1100px;
   line-height: 1.6;
   color: #B6C0D1;

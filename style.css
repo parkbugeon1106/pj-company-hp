@@ -1,6 +1,14 @@
 /* =========================
-   RESET & BASE
+   1. RESET & VARIABLES
    ========================= */
+:root {
+  --bg-dark: #0b1324;
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --primary: #3b82f6;       /* 세련된 블루 */
+  --primary-glow: #60a5fa;  /* 빛나는 효과용 */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
 * {
   box-sizing: border-box;
@@ -9,232 +17,230 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Helvetica, Arial, sans-serif;
-  background: #0b1324; /* 다크 네이비 */
-  color: #ffffff;
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
   line-height: 1.6;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+  -webkit-font-smoothing: antialiased; /* 폰트 부드럽게 */
+}
+
+/* 배경 은은한 조명 효과 */
+.bg-glow {
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 80vh;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(11, 19, 36, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* =========================
-   HEADER
+   2. HEADER & NAV
    ========================= */
-
 header {
+  position: fixed; /* 헤더 고정 */
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 48px;
+  padding: 24px 48px;
+  background: rgba(11, 19, 36, 0.8); /* 반투명 */
+  backdrop-filter: blur(10px); /* 블러 효과 (최신 트렌드) */
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   text-decoration: none;
 }
 
-.brand img {
-  width: 56px;
-  height: auto;
-}
-
 .brand span {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 800;
-  color: #ffffff;
+  color: white;
+  letter-spacing: -0.5px;
 }
 
 nav {
   display: flex;
-  gap: 28px;
+  gap: 32px;
 }
 
 nav a {
-  color: #c9d4ff;
+  color: var(--text-muted);
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #4da3ff;
+  color: white;
 }
 
 /* =========================
-   HOME / HERO
+   3. HERO SECTION (MAIN)
    ========================= */
-
 .hero {
-  min-height: 100svh;
+  min-height: 100vh; /* 모바일 브라우저 호환성 위해 svh 대신 vh+fallback 고려 */
+  min-height: 100svh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 48px;
+  padding: 120px 48px 0; /* 헤더 공간 확보 */
+}
+
+/* 텍스트 그라데이션 (포인트) */
+.text-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .hero h1 {
-  font-size: 96px;
+  font-size: 80px; /* PC 기준 */
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  letter-spacing: -2px;
 }
 
 .hero p {
-  font-size: 22px;
-  max-width: 900px;
-  opacity: 0.9;
+  font-size: 20px;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin-bottom: 48px;
+  font-weight: 400;
 }
 
 /* =========================
-   CONTACT PAGE
+   4. BUTTONS & INTERACTION
    ========================= */
-
-.contact-page {
-  padding: 80px 48px;
+.cta-group {
+  display: flex;
+  gap: 16px;
 }
 
-.contact-page h2 {
-  font-size: 180px;
-  font-weight: 800;
-  margin-bottom: 32px;
-}
-
-.contact-page p {
-  font-size: 30px;
-  margin-bottom: 24px;
-}
-
-.contact-page ul {
-  list-style: none;
-}
-
-.contact-page li {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-.contact-page a {
-  color: #4da3ff;
+.btn {
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-block;
+}
+
+/* Primary Button: 빛나는 효과 */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6);
+}
+
+/* Secondary Button: 라인 */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
 }
 
 /* =========================
-   BUSINESS PAGE
+   5. ANIMATIONS (전문적인 느낌)
    ========================= */
-
-form {
-  max-width: 720px;
-  margin-top: 32px;
+/* 아래에서 위로 부드럽게 떠오르는 효과 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 16px;
-  font-size: 18px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  border: none;
+.animate-up {
+  opacity: 0; /* 처음에 숨김 */
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-textarea {
-  min-height: 200px;
-  resize: vertical;
-}
-
-button {
-  padding: 16px 32px;
-  font-size: 18px;
-  font-weight: 700;
-  border: none;
-  border-radius: 6px;
-  background: #4da3ff;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
 
 /* =========================
-   MOBILE RESPONSIVE
+   6. RESPONSIVE (반응형) - 핵심
    ========================= */
 
+/* 태블릿 (Tablet) */
 @media (max-width: 1024px) {
-  .hero h1 {
-    font-size: 72px;
-  }
-
-  .hero p {
-    font-size: 20px;
-  }
+  .hero h1 { font-size: 60px; }
+  .hero p { font-size: 18px; }
 }
 
+/* 모바일 (Mobile) */
 @media (max-width: 768px) {
-
   header {
-    padding: 16px 20px;
-  }
-
-  .brand img {
-    width: 40px;
-  }
-
-  .brand span {
-    font-size: 20px;
+    padding: 20px;
+    flex-direction: column; /* 로고 위, 메뉴 아래로 배치 */
+    gap: 16px;
+    background: rgba(11, 19, 36, 0.95); /* 모바일은 가독성 위해 더 진하게 */
   }
 
   nav {
-    gap: 16px;
+    gap: 24px;
+    width: 100%;
+    justify-content: center; /* 메뉴 중앙 정렬 */
   }
-
+  
   nav a {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .hero {
-    padding: 0 20px;
+    padding: 140px 24px 60px; /* 헤더 높이만큼 상단 여백 추가 */
+    align-items: flex-start; /* 왼쪽 정렬 유지 */
+    text-align: left;
   }
 
   .hero h1 {
-    font-size: 56px;
-    line-height: 1.15;
-  }
-
-  .hero p {
-    font-size: 18px;
-  }
-
-  .contact-page {
-    padding: 48px 20px;
-  }
-
-  .contact-page h2 {
-    font-size: 48px;
-  }
-
-  .contact-page p,
-  .contact-page li,
-  .contact-page a {
-    font-size: 66px;
-  }
-
-  button {
-    width: 100%;
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-
-  .hero h1 {
-    font-size: 44px;
+    font-size: 42px; /* 모바일에서 적절한 크기 */
+    line-height: 1.2;
+    letter-spacing: -1px;
   }
 
   .hero p {
     font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .cta-group {
+    flex-direction: column; /* 버튼 세로 배치 */
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%; /* 버튼 꽉 차게 */
+    text-align: center;
   }
 }

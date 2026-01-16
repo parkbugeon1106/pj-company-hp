@@ -1,11 +1,12 @@
-/* PJ COMPANY 통합 디자인 */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+/* 폰트 및 기본 컬러 설정 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
 :root {
   --bg-dark: #0b1324;
   --primary: #3b82f6;
   --text-main: #ffffff;
   --text-muted: #94a3b8;
+  --card-bg: rgba(255, 255, 255, 0.03);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -14,46 +15,83 @@ body {
   background-color: var(--bg-dark) !important;
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
-  margin: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* 배경 조명 효과 */
+/* 전문적인 배경 조명 효과 */
 .bg-glow {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% -10%, rgba(59, 130, 246, 0.2) 0%, rgba(11, 19, 36, 0) 75%);
-  z-index: -1;
+  background: radial-gradient(circle at 50% -10%, rgba(59, 130, 246, 0.18) 0%, rgba(11, 19, 36, 0) 75%);
+  z-index: -1; pointer-events: none;
 }
 
-/* 상단 헤더 */
+/* 헤더: 상단 고정 및 투명 블러 */
 header {
   position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between;
   align-items: center; padding: 24px 60px; background: rgba(11, 19, 36, 0.7);
   backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 .brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
-nav a { color: var(--text-muted); text-decoration: none; margin-left: 35px; font-weight: 500; }
+nav a { color: var(--text-muted); text-decoration: none; margin-left: 35px; font-weight: 500; transition: 0.3s; }
+nav a:hover { color: #fff; }
 
-/* 중앙 정렬 컨테이너 (쏠림 방지 핵심) */
+/* 레이아웃 컨테이너: 중앙 정렬 핵심 */
 .container {
   max-width: 1200px; margin: 0 auto; padding: 0 40px;
-  min-height: 100vh; /* 화면 전체 높이 사용 */
+  min-height: 100vh; /* 화면 전체 높이 확보 */
   display: flex; flex-direction: column; 
   justify-content: center; /* 수직 중앙 정렬 */
+  align-items: stretch;
 }
 
-/* TEAM 레이아웃 (사진 왼쪽 / 글 오른쪽) */
-.team-container { display: flex; flex-direction: column; gap: 40px; margin-top: 50px; }
+/* 텍스트 그라데이션 */
+.text-gradient { 
+  background: linear-gradient(90deg, #fff 20%, #60a5fa 100%); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+}
+
+/* 인덱스 Hero 섹션 */
+.hero h1 { font-size: clamp(40px, 8vw, 80px); font-weight: 800; line-height: 1.1; margin-bottom: 24px; }
+.hero p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
+
+/* 팀 카드: 사진 왼쪽 / 글 오른쪽 가로 배치 */
+.team-container { display: flex; flex-direction: column; gap: 30px; margin-top: 40px; }
 .team-card {
-  display: flex !important; flex-direction: row !important; align-items: center !important;
-  gap: 50px; background: rgba(255, 255, 255, 0.02); padding: 40px; border-radius: 24px;
+  display: flex !important; flex-direction: row !important; align-items: flex-start !important;
+  gap: 40px; background: var(--card-bg); padding: 40px; border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 .team-image { flex: 0 0 160px; height: 160px; border-radius: 20px; overflow: hidden; }
 .team-image img { width: 100%; height: 100%; object-fit: cover; }
+.role-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
 
-/* 그라데이션 텍스트 */
-.text-gradient { background: linear-gradient(90deg, #fff 20%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+/* 컨택트 & 비즈니스: 중앙 박스 배치 */
+.center-box {
+  max-width: 700px; margin: 0 auto; text-align: center;
+  background: var(--card-bg); padding: 60px 40px; border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.big-account { font-size: clamp(20px, 5vw, 36px); font-weight: 800; color: #fff; text-decoration: none; display: block; margin: 20px 0; word-break: break-all; }
+
+/* 버튼 및 입력창 */
+.btn, .btn-send {
+  padding: 16px 32px; border-radius: 12px; font-weight: 700; text-decoration: none; 
+  display: inline-block; transition: 0.3s; cursor: pointer; border: none;
+}
+.btn-primary, .btn-send { background: var(--primary); color: white; }
+textarea {
+  width: 100%; padding: 18px; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 12px; margin-bottom: 20px;
+}
 
 /* 애니메이션 */
 .animate-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s forwards; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .team-card { flex-direction: column !important; align-items: center; text-align: center; }
+  header { padding: 20px 30px; }
+}

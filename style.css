@@ -1,14 +1,13 @@
-/* [1] 전 페이지 배경 및 텍스트 강제 고정 */
+/* 전 페이지 배경 및 폰트 강제 고정 */
 html, body {
-  background-color: #0b1324 !important; /* 메인 다크 네이비 */
+  background-color: #0b1324 !important;
   color: #ffffff !important;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', sans-serif;
 }
 
-/* 배경 글로우 효과 */
+/* 배경 글로우 */
 .bg-glow {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -17,67 +16,49 @@ html, body {
   pointer-events: none;
 }
 
-/* [2] 공통 레이아웃 */
-header {
-  position: fixed; top: 0; width: 100%;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 24px 48px; background: rgba(11, 19, 36, 0.85);
-  backdrop-filter: blur(12px); z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.container {
-  max-width: 1200px; margin: 0 auto;
-  padding: 160px 48px 80px;
-}
-
-/* [3] TEAM 섹션 - 완벽한 가로 배열 */
+/* TEAM 섹션 - 완벽한 가로 배열 (글 수정 절대 없음) */
 .team-container {
   display: flex !important;
   flex-direction: column !important;
   gap: 60px !important;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
 .team-card {
-  display: flex !important;           /* 가로 정렬 */
-  flex-direction: row !important; 
+  display: flex !important;           /* 가로 배열 강제 */
+  flex-direction: row !important;      /* 방향 강제 */
   align-items: flex-start !important;
   gap: 50px !important;
   background: rgba(255, 255, 255, 0.02) !important;
   padding: 40px !important;
   border-radius: 24px !important;
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  transition: transform 0.4s ease;
 }
 
-.team-card:hover { transform: translateY(-5px); border-color: #3b82f6; }
-
 .team-image {
-  flex: 0 0 160px !important; /* 사진 크기 고정 */
+  flex: 0 0 160px !important; /* 사진 가로 크기 160px 고정 */
   height: 160px !important;
-  border-radius: 16px !important;
+  border-radius: 20px !important;
   overflow: hidden !important;
 }
 
 .team-image img {
-  width: 100% !important; height: 100% !important; object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
 
 .team-content { flex: 1 !important; text-align: left !important; }
 
-/* [4] CONTACT & BUSINESS (글자 크기 강화) */
-.contact-title { font-size: clamp(50px, 8vw, 90px) !important; font-weight: 900; }
-.big-link { font-size: 32px; font-weight: 700; color: #fff; text-decoration: none; }
-.big-link:hover { color: #3b82f6; }
-
-/* [5] 애니메이션 */
-.animate-reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+/* Contact/Business 제목 크기 확대 */
+.contact-title, .form-section h2 {
+  font-size: clamp(40px, 8vw, 80px) !important;
+  font-weight: 900;
+  margin-bottom: 24px;
 }
+
+/* 애니메이션 상태 */
+.animate-reveal { opacity: 0; transform: translateY(30px); transition: 1s; }
 .animate-reveal.active { opacity: 1 !important; transform: translateY(0) !important; }
-
-/* 반응형 */
-@media (max-width: 850px) {
-  .team-card { flex-direction: column !important; align-items: center !important; text-align: center !important; }
-}

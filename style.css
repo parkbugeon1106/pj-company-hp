@@ -1,4 +1,4 @@
-/* 글로벌 테마: 메인 페이지 디자인과 동일하게 고정 */
+/* [1] 글로벌 다크 테마 고정 */
 :root {
   --bg-dark: #0b1324;
   --text-main: #ffffff;
@@ -17,65 +17,81 @@ body {
   overflow-x: hidden;
 }
 
-/* 배경 블루 글로우 효과 */
+/* 배경 블루 글로우 효과 (전문적 느낌) */
 .bg-glow {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% -10%, rgba(59, 130, 246, 0.15) 0%, rgba(11, 19, 36, 0) 80%);
+  background: radial-gradient(circle at 50% -15%, rgba(59, 130, 246, 0.2) 0%, rgba(11, 19, 36, 0) 80%);
   z-index: -1; pointer-events: none;
 }
 
-/* 헤더 디자인 복구 */
+/* [2] 헤더: 블러 효과가 들어간 고정 메뉴 */
 header {
   position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between;
-  align-items: center; padding: 24px 48px; background: rgba(11, 19, 36, 0.85);
+  align-items: center; padding: 24px 48px; background: rgba(11, 19, 36, 0.8);
   backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 .brand span { font-size: 24px; font-weight: 800; color: white; text-decoration: none; }
 nav a { color: var(--text-muted); text-decoration: none; margin-left: 32px; font-weight: 500; transition: 0.3s; }
 nav a:hover { color: white; }
 
-/* 레이아웃 컨테이너 */
-.container { max-width: 1100px; margin: 0 auto; padding: 160px 24px 80px; }
-.text-gradient { background: linear-gradient(90deg, #fff 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+/* [3] 컨테이너: 글자 쏠림 방지 및 중앙 정렬 */
+.container { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 160px 24px 80px; 
+  min-height: 100vh; /* 화면 전체 높이 확보 */
+  display: flex;
+  flex-direction: column;
+}
 
-/* [TEAM 전용] 사진 좌측 / 글 우측 정렬 */
+/* 텍스트 그라데이션 */
+.text-gradient { 
+  background: linear-gradient(90deg, #fff 0%, #60a5fa 100%); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+}
+
+/* [TEAM] 사진 좌측 / 글 우측 (가로 배치 강제) */
 .team-container { display: flex; flex-direction: column; gap: 40px; }
-
 .team-card {
-  display: flex !important; /* 가로 배치 강제 */
-  flex-direction: row !important;
-  align-items: flex-start !important;
-  gap: 40px;
-  background: var(--card-bg);
-  padding: 40px;
-  border-radius: 24px;
+  display: flex !important; flex-direction: row !important; align-items: flex-start !important;
+  gap: 50px; background: var(--card-bg); padding: 40px; border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease;
 }
-
-.team-card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.3); }
-
-/* 사진 크기 160px 고정 */
-.team-image {
-  flex: 0 0 160px !important;
-  height: 160px !important;
-  border-radius: 20px;
-  overflow: hidden;
-  background: #1a2234;
-}
+.team-image { flex: 0 0 160px; height: 160px; border-radius: 20px; overflow: hidden; background: #1a2234; }
 .team-image img { width: 100%; height: 100%; object-fit: cover; }
-
-/* 글 영역 */
-.team-content { flex: 1; }
+.team-content { flex: 1; text-align: left; }
 .role-title { font-size: 22px; font-weight: 700; margin-bottom: 15px; color: #fff; }
-.bio p { font-size: 16px; color: var(--text-muted); margin-bottom: 12px; }
+
+/* [CONTACT & BUSINESS] 중앙 집중 박스 */
+.center-box {
+  margin: auto; /* 상하좌우 중앙 배치 핵심 */
+  width: 100%;
+  max-width: 700px; 
+  text-align: center;
+  background: var(--card-bg); 
+  padding: 60px 40px; 
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.big-account { font-size: clamp(24px, 5vw, 42px); font-weight: 800; color: #fff; text-decoration: none; display: block; margin: 30px 0; }
+
+/* 폼 스타일 */
+textarea, input {
+  width: 100%; padding: 18px; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 12px; margin-bottom: 20px;
+}
+.btn-send {
+  width: 100%; padding: 18px; background: var(--primary); color: white; border: none;
+  border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s;
+}
 
 /* 애니메이션 */
 .animate-up { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s forwards; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-/* 모바일 대응 (화면 작아지면 세로로) */
+/* 모바일 대응 */
 @media (max-width: 768px) {
   .team-card { flex-direction: column !important; align-items: center; text-align: center; }
-  header { padding: 20px; }
+  .container { padding-top: 120px; }
 }

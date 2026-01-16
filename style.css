@@ -1,65 +1,74 @@
-/* 글로벌 설정 - 배경색 강제 고정 */
+/* 글로벌 다크 테마 고정 */
 :root {
   --bg-dark: #0b1324;
   --text-main: #ffffff;
   --text-muted: #94a3b8;
   --primary: #3b82f6;
+  --card-bg: rgba(255, 255, 255, 0.03);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Inter', sans-serif;
   background-color: var(--bg-dark) !important;
   color: var(--text-main);
+  font-family: 'Inter', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* 배경 조명 효과 */
+/* 모든 페이지 공통 배경 조명 */
 .bg-glow {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: radial-gradient(circle at 50% -10%, rgba(59, 130, 246, 0.15) 0%, rgba(11, 19, 36, 0) 80%);
   z-index: -1; pointer-events: none;
 }
 
-/* 헤더 & 네비게이션 */
+/* 헤더 디자인 */
 header {
   position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between;
-  align-items: center; padding: 24px 48px; background: rgba(11, 19, 36, 0.85);
+  align-items: center; padding: 24px 48px; background: rgba(11, 19, 36, 0.8);
   backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-
 .brand span { font-size: 24px; font-weight: 800; color: white; text-decoration: none; }
-nav a { color: var(--text-muted); text-decoration: none; margin-left: 32px; font-weight: 500; }
+nav a { color: var(--text-muted); text-decoration: none; margin-left: 32px; font-weight: 500; transition: 0.3s; }
 nav a:hover { color: white; }
 
-/* 컨테이너 */
-.container { max-width: 1200px; margin: 0 auto; padding: 160px 48px 80px; }
+/* 공통 컨테이너 */
+.container { max-width: 1100px; margin: 0 auto; padding: 160px 24px 80px; }
+.text-gradient { background: linear-gradient(90deg, #fff 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-/* TEAM 섹션 - 사진 좌측 정렬 */
-.team-container { display: flex !important; flex-direction: column !important; gap: 60px !important; }
+/* [TEAM] 사진 왼쪽 / 글 오른쪽 */
+.team-container { display: flex; flex-direction: column; gap: 40px; }
 .team-card {
   display: flex !important; flex-direction: row !important; align-items: flex-start !important;
-  gap: 50px !important; background: rgba(255, 255, 255, 0.02) !important;
-  padding: 40px !important; border-radius: 24px !important; border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  gap: 40px; background: var(--card-bg); padding: 40px; border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
-.team-image { flex: 0 0 160px !important; width: 160px !important; height: 160px !important; border-radius: 16px; overflow: hidden; }
+.team-image { flex: 0 0 160px; height: 160px; border-radius: 20px; overflow: hidden; }
 .team-image img { width: 100%; height: 100%; object-fit: cover; }
 .team-content { flex: 1; }
+.team-content h2 { font-size: 24px; margin-bottom: 15px; }
 
-/* HERO 섹션 (메인 전용) */
-.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 48px 0; }
-.hero h1 { font-size: 80px; font-weight: 800; line-height: 1.1; margin-bottom: 24px; }
-.text-gradient { background: linear-gradient(90deg, #ffffff 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; margin-bottom: 48px; }
+/* [CONTACT & BUSINESS] 중앙 집중 배치 */
+.center-box {
+  max-width: 700px; margin: 0 auto; text-align: center;
+  background: var(--card-bg); padding: 60px 40px; border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.big-account { font-size: clamp(24px, 5vw, 42px); font-weight: 800; color: #fff; text-decoration: none; display: block; margin: 30px 0; word-break: break-all; }
 
-/* 공통 버튼 */
-.btn { padding: 16px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s; }
-.btn-primary { background: var(--primary); color: white; }
-.btn-secondary { background: rgba(255, 255, 255, 0.05); color: white; border: 1px solid rgba(255, 255, 255, 0.1); }
+/* 입력창 & 버튼 디자인 */
+textarea, input {
+  width: 100%; padding: 18px; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 12px; margin-bottom: 20px; font-size: 16px;
+}
+.btn-send {
+  width: 100%; padding: 18px; background: var(--primary); color: white; border: none;
+  border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s;
+}
+.btn-send:hover { background: #2563eb; transform: translateY(-2px); }
 
 /* 애니메이션 */
+.animate-up { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s forwards; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-.animate-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s forwards; }
-.delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.3s; }

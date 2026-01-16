@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Business | PJ COMPANY</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business | PJ COMPANY</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="subpage">
-
-<div class="request-box">
-  <h1>REQUEST</h1>
-  <p>What do you need?</p>
-  <textarea placeholder="Describe your request"></textarea>
-  <br><br>
-  <button>SEND</button><br><br>
-  <small>This message will be submitted directly to the company.</small>
-</div>
-
+<body class="sub-page">
+  <div class="bg-glow"></div>
+  <header>
+    <a href="index.html" class="brand"><span>PJ COMPANY</span></a>
+    <nav>
+      <a href="contact.html">Contact</a>
+      <a href="business.html">Business</a>
+      <a href="team.html">Team</a>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="form-section animate-up">
+      <h2 class="text-gradient contact-title">REQUEST</h2>
+      <p class="contact-subtitle">What do you need? Describe your technical challenges.</p>
+      <form id="contactForm" class="modern-form">
+        <div class="input-group">
+          <textarea name="message" placeholder="Describe your request" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">SEND</button>
+      </form>
+      <small style="display:block; margin-top:20px; color:var(--text-muted);">This message will be submitted directly to the company.</small>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="contact.js"></script>
 </body>
 </html>

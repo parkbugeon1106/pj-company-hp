@@ -1,10 +1,11 @@
-/* [1] 글로벌 다크 테마 고정 */
+/* [1] 폰트 및 글로벌 설정 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
 :root {
   --bg-dark: #0b1324;
+  --primary: #3b82f6;
   --text-main: #ffffff;
   --text-muted: #94a3b8;
-  --primary: #3b82f6;
-  --card-bg: rgba(255, 255, 255, 0.03);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -13,85 +14,65 @@ body {
   background-color: var(--bg-dark) !important;
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
-  line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* 배경 블루 글로우 효과 (전문적 느낌) */
+/* [2] 배경 블루 글로우 (전문적인 조명 효과) */
 .bg-glow {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% -15%, rgba(59, 130, 246, 0.2) 0%, rgba(11, 19, 36, 0) 80%);
+  background: radial-gradient(circle at 50% -10%, rgba(59, 130, 246, 0.18) 0%, rgba(11, 19, 36, 0) 75%);
   z-index: -1; pointer-events: none;
 }
 
-/* [2] 헤더: 블러 효과가 들어간 고정 메뉴 */
+/* [3] 헤더 디자인 (상단 고정 및 블러) */
 header {
   position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between;
-  align-items: center; padding: 24px 48px; background: rgba(11, 19, 36, 0.8);
-  backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: center; padding: 24px 60px; background: rgba(11, 19, 36, 0.7);
+  backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-.brand span { font-size: 24px; font-weight: 800; color: white; text-decoration: none; }
-nav a { color: var(--text-muted); text-decoration: none; margin-left: 32px; font-weight: 500; transition: 0.3s; }
-nav a:hover { color: white; }
+.brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -0.5px; }
+nav a { color: var(--text-muted); text-decoration: none; margin-left: 35px; font-weight: 500; transition: 0.3s; }
+nav a:hover { color: #fff; text-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
 
-/* [3] 컨테이너: 글자 쏠림 방지 및 중앙 정렬 */
-.container { 
-  max-width: 1100px; 
-  margin: 0 auto; 
-  padding: 160px 24px 80px; 
-  min-height: 100vh; /* 화면 전체 높이 확보 */
-  display: flex;
-  flex-direction: column;
+/* [4] 중앙 정렬 레이아웃 (쏠림 방지 핵심) */
+.container {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  min-height: 100vh; /* 화면 전체 높이 사용 */
+  display: flex; flex-direction: column; 
+  justify-content: center; /* 수직 중앙 정렬 */
 }
 
-/* 텍스트 그라데이션 */
-.text-gradient { 
-  background: linear-gradient(90deg, #fff 0%, #60a5fa 100%); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-}
+/* 메인 Hero 섹션 전용 */
+.hero { text-align: left; }
+.hero h1 { font-size: clamp(50px, 8vw, 90px); font-weight: 800; line-height: 1.1; margin-bottom: 30px; }
+.text-gradient { background: linear-gradient(90deg, #fff 20%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { font-size: 20px; color: var(--text-muted); max-width: 650px; margin-bottom: 50px; }
 
-/* [TEAM] 사진 좌측 / 글 우측 (가로 배치 강제) */
-.team-container { display: flex; flex-direction: column; gap: 40px; }
+/* [5] 서브 페이지 공통 박스 (Contact, Business 중앙 배치) */
+.center-box {
+  max-width: 750px; margin: 0 auto; text-align: center;
+  background: rgba(255, 255, 255, 0.02); padding: 70px 50px; border-radius: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.06); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.big-account { font-size: clamp(24px, 5vw, 42px); font-weight: 800; color: #fff; text-decoration: none; margin: 30px 0; display: block; }
+
+/* [6] TEAM 레이아웃 (사진 왼쪽 / 글 오른쪽) */
+.team-container { display: flex; flex-direction: column; gap: 50px; margin-top: 50px; }
 .team-card {
-  display: flex !important; flex-direction: row !important; align-items: flex-start !important;
-  gap: 50px; background: var(--card-bg); padding: 40px; border-radius: 24px;
+  display: flex !important; flex-direction: row !important; align-items: center !important;
+  gap: 50px; background: rgba(255, 255, 255, 0.02); padding: 45px; border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
-.team-image { flex: 0 0 160px; height: 160px; border-radius: 20px; overflow: hidden; background: #1a2234; }
+.team-image { flex: 0 0 180px; height: 180px; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 .team-image img { width: 100%; height: 100%; object-fit: cover; }
-.team-content { flex: 1; text-align: left; }
-.role-title { font-size: 22px; font-weight: 700; margin-bottom: 15px; color: #fff; }
+.team-content { flex: 1; }
+.team-content h2 { font-size: 24px; margin-bottom: 15px; }
 
-/* [CONTACT & BUSINESS] 중앙 집중 박스 */
-.center-box {
-  margin: auto; /* 상하좌우 중앙 배치 핵심 */
-  width: 100%;
-  max-width: 700px; 
-  text-align: center;
-  background: var(--card-bg); 
-  padding: 60px 40px; 
-  border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.big-account { font-size: clamp(24px, 5vw, 42px); font-weight: 800; color: #fff; text-decoration: none; display: block; margin: 30px 0; }
+/* 버튼 디자인 */
+.btn { padding: 18px 36px; border-radius: 12px; font-weight: 700; text-decoration: none; display: inline-block; transition: 0.3s; }
+.btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+.btn-primary:hover { transform: translateY(-3px); background: #2563eb; }
 
-/* 폼 스타일 */
-textarea, input {
-  width: 100%; padding: 18px; background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 12px; margin-bottom: 20px;
-}
-.btn-send {
-  width: 100%; padding: 18px; background: var(--primary); color: white; border: none;
-  border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s;
-}
-
-/* 애니메이션 */
-.animate-up { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s forwards; }
+/* [7] 애니메이션 */
+.animate-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-
-/* 모바일 대응 */
-@media (max-width: 768px) {
-  .team-card { flex-direction: column !important; align-items: center; text-align: center; }
-  .container { padding-top: 120px; }
-}

@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team | PJ COMPANY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="sub-page">
   <div class="bg-glow"></div>
+  
   <header>
     <a href="index.html" class="brand"><span>PJ COMPANY</span></a>
     <nav>
@@ -16,11 +18,15 @@
       <a href="team.html">Team</a>
     </nav>
   </header>
+
   <main class="container">
     <h1 class="text-gradient animate-up" style="margin-bottom:60px;">Our Team</h1>
+    
     <div class="team-container">
-      <div class="team-card animate-reveal">
-        <div class="team-image"><img src="bugeon.png" alt="Park Bugeon"></div>
+      <div class="team-card animate-up">
+        <div class="team-image">
+          <img src="bugeon.png" alt="Park Bugeon">
+        </div>
         <div class="team-content">
           <h2 class="role-title">Park Bugeon | Founder & CEO · Full-Stack Developer</h2>
           <div class="bio">
@@ -29,8 +35,11 @@
           </div>
         </div>
       </div>
-      <div class="team-card animate-reveal">
-        <div class="team-image"><img src="bro.png" alt="Jung Woojin"></div>
+
+      <div class="team-card animate-up" style="animation-delay: 0.2s;">
+        <div class="team-image">
+          <img src="bro.png" alt="Jung Woojin">
+        </div>
         <div class="team-content">
           <h2 class="role-title">Jung Woojin | Founder & CEO · AI Developer</h2>
           <div class="bio">
@@ -41,6 +50,7 @@
       </div>
     </div>
   </main>
+
   <script src="main.js"></script>
 </body>
 </html>

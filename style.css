@@ -1,64 +1,52 @@
-/* 전 페이지 배경 및 폰트 강제 고정 */
+/* 글로벌 배경 강제 고정 */
 html, body {
   background-color: #0b1324 !important;
   color: #ffffff !important;
-  margin: 0; padding: 0;
-  min-height: 100vh;
+  margin: 0; padding: 0; min-height: 100vh;
   font-family: 'Inter', sans-serif;
 }
 
-/* 배경 글로우 */
 .bg-glow {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: radial-gradient(circle at 50% -10%, rgba(59, 130, 246, 0.15) 0%, rgba(11, 19, 36, 0) 80%);
-  z-index: -1;
-  pointer-events: none;
+  z-index: -1; pointer-events: none;
 }
 
-/* TEAM 섹션 - 완벽한 가로 배열 (글 수정 절대 없음) */
-.team-container {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 60px !important;
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 0 20px;
+header {
+  position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between;
+  align-items: center; padding: 24px 48px; background: rgba(11, 19, 36, 0.85);
+  backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+nav a { color: #94a3b8; text-decoration: none; margin-left: 32px; transition: 0.3s; }
+nav a:hover { color: #fff; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 160px 48px 80px; }
+
+/* Team 페이지 가로 레이아웃 */
+.team-container { display: flex !important; flex-direction: column !important; gap: 60px !important; }
 .team-card {
-  display: flex !important;           /* 가로 배열 강제 */
-  flex-direction: row !important;      /* 방향 강제 */
-  align-items: flex-start !important;
-  gap: 50px !important;
-  background: rgba(255, 255, 255, 0.02) !important;
-  padding: 40px !important;
-  border-radius: 24px !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  display: flex !important; flex-direction: row !important; align-items: flex-start !important;
+  gap: 50px !important; background: rgba(255, 255, 255, 0.02) !important;
+  padding: 40px !important; border-radius: 24px !important; border: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
-
-.team-image {
-  flex: 0 0 160px !important; /* 사진 가로 크기 160px 고정 */
-  height: 160px !important;
-  border-radius: 20px !important;
-  overflow: hidden !important;
-}
-
-.team-image img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-}
-
+.team-image { flex: 0 0 160px !important; width: 160px !important; height: 160px !important; border-radius: 16px !important; overflow: hidden !important; }
+.team-image img { width: 100%; height: 100%; object-fit: cover; }
 .team-content { flex: 1 !important; text-align: left !important; }
 
-/* Contact/Business 제목 크기 확대 */
-.contact-title, .form-section h2 {
-  font-size: clamp(40px, 8vw, 80px) !important;
-  font-weight: 900;
-  margin-bottom: 24px;
-}
+/* Contact 거대 텍스트 */
+.contact-title { font-size: clamp(40px, 8vw, 80px) !important; font-weight: 900; background: linear-gradient(90deg, #fff 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.contact-grid { display: grid; gap: 24px; margin-top: 50px; }
+.contact-card { padding: 40px; background: rgba(255, 255, 255, 0.03); border-radius: 20px; }
+.label { display: block; color: #3b82f6; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; }
+.big-link { font-size: clamp(20px, 4vw, 36px); color: #fff; font-weight: 700; text-decoration: none; word-break: break-all; }
 
-/* 애니메이션 상태 */
+/* 애니메이션 */
+.animate-up { opacity: 0; animation: fadeInUp 0.8s forwards; }
 .animate-reveal { opacity: 0; transform: translateY(30px); transition: 1s; }
 .animate-reveal.active { opacity: 1 !important; transform: translateY(0) !important; }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 850px) {
+  .team-card { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+}

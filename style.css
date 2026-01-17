@@ -30,7 +30,7 @@ header {
 .brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
 nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: 600; }
 
-/* 레이아웃: 왼쪽 하단 배치 */
+/* 공통 컨테이너: 왼쪽 하단 배치 */
 .container {
   max-width: 1400px; margin: 0 auto; padding: 120px 6% 100px;
   min-height: 100vh;
@@ -39,39 +39,45 @@ nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font
   align-items: flex-start;
 }
 
-/* [Index 메인 전용] 글자 크기 강화 */
+/* [Index 메인] */
 .hero h1 { 
-  font-size: clamp(55px, 10vw, 110px) !important; /* 메인 타이틀을 아주 크게 */
-  font-weight: 800; 
-  line-height: 1.0; 
-  margin-bottom: 25px; 
-  letter-spacing: -0.05em; 
+  font-size: clamp(55px, 10vw, 110px) !important; font-weight: 800; 
+  line-height: 1.0; margin-bottom: 25px; letter-spacing: -0.05em; 
 }
-.hero p { 
-  font-size: clamp(18px, 2.5vw, 26px); /* 설명글 크기 조정 */
-  color: var(--text-muted); 
-  max-width: 800px; 
-  margin-bottom: 45px; 
-}
+.hero p { font-size: clamp(18px, 2.5vw, 26px); color: var(--text-muted); max-width: 800px; margin-bottom: 45px; }
 
-.text-gradient { 
-  background: linear-gradient(135deg, #fff 40%, var(--primary) 100%); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-}
-
-/* [Contact 전용] 가로 꽉 채우는 박스 */
+/* [Contact] 가로 박스 */
 .contact-wrapper { width: 100%; display: flex; flex-direction: column; gap: 20px; }
 .full-box {
   width: 100%; background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px;
   padding: 40px; display: flex; flex-direction: column; text-decoration: none; transition: 0.3s;
 }
-.full-box:hover { background: rgba(59, 130, 246, 0.1); border-color: var(--primary); transform: translateY(-5px); }
 .box-label { font-size: 14px; color: var(--primary); font-weight: 800; margin-bottom: 10px; letter-spacing: 2px; }
 .box-content { font-size: clamp(24px, 5vw, 45px); font-weight: 800; color: #fff; word-break: break-all; }
 
-/* [Team 전용] 가로 배치 및 120px 사진 */
+/* [Business] 복구 및 강화 */
+.biz-box { width: 100%; max-width: 900px; text-align: left; }
+.biz-box h1 { font-size: clamp(40px, 6vw, 70px); font-weight: 800; margin-bottom: 15px; }
+.biz-box p { font-size: 20px; color: var(--text-muted); margin-bottom: 30px; }
+
+textarea {
+  width: 100%; min-height: 300px; padding: 25px; 
+  background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px; color: #fff; font-size: 18px; font-family: inherit;
+  margin-bottom: 20px; outline: none; transition: 0.3s;
+}
+textarea:focus { border-color: var(--primary); background: rgba(59, 130, 246, 0.05); }
+
+.btn-send {
+  width: 100%; max-width: 300px; padding: 20px; 
+  background: var(--primary); color: #fff; border: none; 
+  border-radius: 15px; font-size: 18px; font-weight: 800; 
+  cursor: pointer; transition: 0.3s;
+}
+.btn-send:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+
+/* [Team] 가로 배치 */
 .team-container { width: 100%; display: flex; flex-direction: column; gap: 30px; }
 .team-card {
   display: flex !important; flex-direction: row !important; align-items: flex-start !important;
@@ -80,13 +86,12 @@ nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font
 }
 .team-image { flex: 0 0 120px !important; height: 120px !important; border-radius: 20px; overflow: hidden; }
 .team-image img { width: 100%; height: 100%; object-fit: cover; }
-.team-content { flex: 1; }
 
 .animate-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s forwards; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-/* 모바일 대응 */
 @media (max-width: 768px) {
   .hero h1 { font-size: 45px !important; }
   .team-card { flex-direction: column !important; align-items: center !important; text-align: center; }
+  .btn-send { max-width: 100%; }
 }

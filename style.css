@@ -13,17 +13,12 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
-  line-height: 1.5;
-  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-/* 전문적인 그라데이션 배경 */
 .bg-glow {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: 
-    radial-gradient(circle at 15% 85%, rgba(59, 130, 246, 0.15) 0%, rgba(11, 19, 36, 0) 50%),
-    radial-gradient(circle at 85% 15%, rgba(96, 165, 250, 0.05) 0%, rgba(11, 19, 36, 0) 40%),
-    var(--bg-dark);
+  background: radial-gradient(circle at 10% 90%, rgba(59, 130, 246, 0.15) 0%, rgba(11, 19, 36, 0) 60%);
   z-index: -1;
 }
 
@@ -33,72 +28,63 @@ header {
   backdrop-filter: blur(20px); z-index: 1000;
 }
 .brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
-nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: 600; font-size: 15px; }
+nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: 600; }
 
-/* 레이아웃: 왼쪽 하단 배치 */
+/* 공통 컨테이너: 왼쪽 하단 배치 */
 .container {
-  max-width: 1400px; margin: 0 auto; padding: 120px 6% 100px;
+  max-width: 1400px; margin: 0 auto; padding: 120px 6% 80px;
   min-height: 100vh;
   display: flex; flex-direction: column; 
-  justify-content: flex-end; /* 하단 배치 */
-  align-items: flex-start;   /* 왼쪽 배치 */
+  justify-content: flex-end; 
+  align-items: flex-start;
 }
 
-/* 글자 크기 최적화 (모바일 대응) */
-.hero h1 { 
-  font-size: clamp(40px, 8vw, 90px); 
-  font-weight: 800; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.04em;
-}
-.text-gradient { 
-  background: linear-gradient(135deg, #fff 40%, var(--primary) 100%); 
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+/* [Contact 전용] 가로를 꽉 채우는 박스 디자인 */
+.contact-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* TEAM: 사진 크기 축소 및 가로 배치 고정 */
+.full-box {
+  width: 100%; /* 가로 꽉 채움 */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.full-box:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--primary);
+  transform: translateY(-5px);
+}
+
+.box-label { font-size: 14px; color: var(--primary); font-weight: 800; margin-bottom: 10px; letter-spacing: 2px; }
+.box-content { font-size: clamp(24px, 5vw, 50px); font-weight: 800; color: #fff; }
+
+/* [Team 전용] 가로 배치 및 사진 크기 120px */
 .team-container { width: 100%; display: flex; flex-direction: column; gap: 30px; }
 .team-card {
   display: flex !important; flex-direction: row !important; align-items: flex-start !important;
-  gap: 30px; background: rgba(255, 255, 255, 0.02); padding: 30px; border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05); width: 100%; max-width: 900px;
+  gap: 40px; background: rgba(255, 255, 255, 0.02); padding: 40px; border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05); width: 100%;
 }
-.team-image { 
-  flex: 0 0 120px !important; /* 사진 크기 120px 고정 */
-  height: 120px !important; border-radius: 15px; overflow: hidden; 
-}
+.team-image { flex: 0 0 120px !important; height: 120px !important; border-radius: 20px; overflow: hidden; }
 .team-image img { width: 100%; height: 100%; object-fit: cover; }
 .team-content { flex: 1; }
-.role-title { font-size: clamp(18px, 3vw, 22px); font-weight: 700; margin-bottom: 10px; }
-.bio p { font-size: 15px; color: var(--text-muted); margin-bottom: 8px; }
 
-/* CONTACT: 이메일 강조형 */
-.contact-box { text-align: left; }
-.big-email { 
-  font-size: clamp(30px, 7vw, 65px); 
-  font-weight: 800; color: #fff; text-decoration: none; 
-  display: block; margin-bottom: 15px; word-break: break-all;
-}
-.insta-tag { 
-  font-size: 20px; color: var(--primary); text-decoration: none; font-weight: 600; 
-}
-
-/* BUSINESS: 폼 크기 확대 */
-.biz-box { width: 100%; max-width: 800px; }
-textarea {
-  width: 100%; padding: 25px; background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 15px;
-  font-size: 18px; min-height: 250px; margin: 20px 0; outline: none;
-}
-.btn-submit {
-  padding: 16px 40px; background: var(--primary); color: white; 
-  border: none; border-radius: 12px; font-weight: 700; cursor: pointer;
-}
-
-/* 애니메이션 */
-.animate-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease-out forwards; }
+.animate-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s forwards; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-/* 모바일 대응 (사진 가로 유지) */
-@media (max-width: 600px) {
-  .team-card { gap: 15px; padding: 20px; }
-  .team-image { flex: 0 0 80px !important; height: 80px !important; }
+@media (max-width: 768px) {
+  .full-box { padding: 30px; }
+  .box-content { font-size: 24px; }
+  .team-card { flex-direction: column !important; align-items: center !important; text-align: center; }
 }

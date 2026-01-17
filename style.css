@@ -1,3 +1,4 @@
+/* 전문적인 폰트 및 초기화 */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
 
 :root {
@@ -5,6 +6,7 @@
   --primary: #3b82f6;
   --text-main: #ffffff;
   --text-muted: #94a3b8;
+  --accent: #60a5fa;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,83 +14,84 @@
 body {
   background-color: var(--bg-dark) !important;
   color: var(--text-main);
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  min-height: 100vh;
+  font-family: 'Inter', -apple-system, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
 }
 
+/* 전문적인 레이어 그라데이션 배경 */
 .bg-glow {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle at 10% 90%, rgba(59, 130, 246, 0.15) 0%, rgba(11, 19, 36, 0) 60%);
+  background: 
+    radial-gradient(circle at 10% 90%, rgba(59, 130, 246, 0.12) 0%, rgba(11, 19, 36, 0) 50%),
+    radial-gradient(circle at 90% 10%, rgba(96, 165, 250, 0.08) 0%, rgba(11, 19, 36, 0) 40%),
+    var(--bg-dark);
   z-index: -1;
 }
 
+/* 헤더: 모바일 대응 여백 */
 header {
   position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between;
-  align-items: center; padding: 30px 60px; background: rgba(11, 19, 36, 0.5);
+  align-items: center; padding: 30px 5%; background: rgba(11, 19, 36, 0.6);
   backdrop-filter: blur(20px); z-index: 1000;
 }
-.brand { font-size: 26px; font-weight: 800; color: #fff; text-decoration: none; }
-nav a { color: var(--text-muted); text-decoration: none; margin-left: 40px; font-weight: 600; font-size: 18px; }
+.brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
+nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: 600; font-size: 15px; transition: 0.3s; }
+nav a:hover { color: #fff; }
 
-/* 레이아웃 핵심: 왼쪽 아래 배치 */
+/* 레이아웃: 왼쪽 하단 배치 */
 .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 100px 60px 120px; /* 아래쪽 여백 넉넉히 */
+  max-width: 1400px; margin: 0 auto; padding: 120px 8% 80px;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column; 
   justify-content: flex-end; /* 아래로 밀기 */
   align-items: flex-start;   /* 왼쪽으로 붙이기 */
 }
 
-/* 글자 크기 대폭 키움 */
+/* 메인 텍스트: 모바일 가변 크기 */
 .hero h1 { 
-  font-size: clamp(60px, 10vw, 110px); /* 아주 크게 */
-  font-weight: 800; 
-  line-height: 1.0; 
-  margin-bottom: 30px; 
-  letter-spacing: -4px;
+  font-size: clamp(45px, 9vw, 100px); /* 화면 크기에 따라 유동적 */
+  font-weight: 800; line-height: 1.05; margin-bottom: 25px; letter-spacing: -0.04em;
 }
-
 .text-gradient { 
-  background: linear-gradient(135deg, #fff 30%, #3b82f6 100%); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
+  background: linear-gradient(135deg, #fff 30%, var(--primary) 100%); 
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
 }
-
 .hero p { 
-  font-size: 24px; /* 본문 크기 업 */
-  color: var(--text-muted); 
-  max-width: 800px; 
-  margin-bottom: 50px; 
-  line-height: 1.5;
+  font-size: clamp(18px, 2.5vw, 24px); 
+  color: var(--text-muted); max-width: 700px; margin-bottom: 40px; 
 }
 
-/* 팀 페이지 카드 (가로 배치 유지하되 웅장하게) */
-.team-container { width: 100%; display: flex; flex-direction: column; gap: 40px; margin-top: 50px; }
-.team-card {
-  display: flex; flex-direction: row; align-items: center;
-  gap: 50px; background: rgba(255, 255, 255, 0.02); padding: 50px; border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.05); width: 100%;
-}
-.team-image { flex: 0 0 200px; height: 200px; border-radius: 25px; overflow: hidden; }
-.team-image img { width: 100%; height: 100%; object-fit: cover; }
-.role-title { font-size: 28px; font-weight: 800; margin-bottom: 15px; }
-.bio p { font-size: 18px; color: var(--text-muted); }
+/* 버튼 세트 */
+.cta-group { display: flex; gap: 15px; flex-wrap: wrap; }
+.btn { padding: 16px 32px; border-radius: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; }
+.btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2); }
+.btn-secondary { background: rgba(255, 255, 255, 0.05); color: white; border: 1px solid rgba(255, 255, 255, 0.1); }
 
-/* 컨택트/비즈니스 전용 (왼쪽 정렬 박스) */
-.center-box {
-  text-align: left;
-  background: rgba(255, 255, 255, 0.02);
-  padding: 60px;
-  border-radius: 30px;
-  border-left: 5px solid var(--primary);
-  width: 100%;
-  max-width: 900px;
+/* 컨택트/비즈니스: 왼쪽 아래 웅장한 박스 */
+.content-box {
+  width: 100%; max-width: 900px; text-align: left;
+  background: rgba(255, 255, 255, 0.02); padding: clamp(30px, 5vw, 60px);
+  border-radius: 30px; border-left: 4px solid var(--primary);
 }
-.big-account { font-size: clamp(30px, 6vw, 55px); font-weight: 800; color: #fff; text-decoration: none; margin: 30px 0; display: block; }
+.big-text { font-size: clamp(28px, 6vw, 50px); font-weight: 800; color: #fff; text-decoration: none; display: block; margin-bottom: 20px; word-break: break-all; }
+.insta-link { color: var(--accent); text-decoration: none; font-size: 20px; font-weight: 600; opacity: 0.8; transition: 0.3s; }
+.insta-link:hover { opacity: 1; text-decoration: underline; }
 
-.animate-up { opacity: 0; transform: translateY(40px); animation: fadeInUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
+/* 비즈니스 폼 크기 확대 */
+textarea {
+  width: 100%; padding: 25px; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 15px;
+  font-size: 18px; min-height: 250px; margin: 25px 0; outline: none;
+}
+
+/* 모바일 전용 최적화 */
+@media (max-width: 768px) {
+  header { padding: 20px 6%; }
+  .brand { font-size: 20px; }
+  nav a { margin-left: 15px; font-size: 13px; }
+  .container { padding-bottom: 60px; }
+}
+
+.animate-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease-out forwards; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }

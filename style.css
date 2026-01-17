@@ -30,7 +30,7 @@ header {
 .brand { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
 nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: 600; }
 
-/* 공통 컨테이너: 왼쪽 하단 배치 */
+/* 레이아웃: 왼쪽 하단 배치 */
 .container {
   max-width: 1400px; margin: 0 auto; padding: 120px 6% 80px;
   min-height: 100vh;
@@ -39,37 +39,18 @@ nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font
   align-items: flex-start;
 }
 
-/* [Contact 전용] 가로를 꽉 채우는 박스 디자인 */
-.contact-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
+/* [Contact 전용] 가로 꽉 채우는 박스 */
+.contact-wrapper { width: 100%; display: flex; flex-direction: column; gap: 20px; }
 .full-box {
-  width: 100%; /* 가로 꽉 채움 */
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: 0.3s;
-  text-decoration: none;
+  width: 100%; background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px;
+  padding: 40px; display: flex; flex-direction: column; text-decoration: none; transition: 0.3s;
 }
-
-.full-box:hover {
-  background: rgba(59, 130, 246, 0.1);
-  border-color: var(--primary);
-  transform: translateY(-5px);
-}
-
+.full-box:hover { background: rgba(59, 130, 246, 0.1); border-color: var(--primary); transform: translateY(-5px); }
 .box-label { font-size: 14px; color: var(--primary); font-weight: 800; margin-bottom: 10px; letter-spacing: 2px; }
-.box-content { font-size: clamp(24px, 5vw, 50px); font-weight: 800; color: #fff; }
+.box-content { font-size: clamp(24px, 5vw, 45px); font-weight: 800; color: #fff; word-break: break-all; }
 
-/* [Team 전용] 가로 배치 및 사진 크기 120px */
+/* [Team 전용] 가로 배치 및 120px 사진 */
 .team-container { width: 100%; display: flex; flex-direction: column; gap: 30px; }
 .team-card {
   display: flex !important; flex-direction: row !important; align-items: flex-start !important;
@@ -84,7 +65,6 @@ nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 768px) {
-  .full-box { padding: 30px; }
-  .box-content { font-size: 24px; }
   .team-card { flex-direction: column !important; align-items: center !important; text-align: center; }
+  .box-content { font-size: 20px; }
 }
